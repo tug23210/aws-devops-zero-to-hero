@@ -1,7 +1,7 @@
 from flask import Flask
 import time
-import random
 import boto3
+import secrets
 
 
 app = Flask(__name__)
@@ -21,7 +21,7 @@ def index():
     start_time = time.time()
 
     # Simulate processing time
-    time.sleep(random.uniform(0.1, 0.5))
+    time.sleep(secrets.SystemRandom().uniform(0.1, 0.5))
 
     # Log the page view metric to CloudWatch
     log_metric('PageViews', 1)
@@ -37,7 +37,7 @@ def product(product_id):
     start_time = time.time()
 
     # Simulate processing time
-    time.sleep(random.uniform(0.2, 0.8))
+    time.sleep(secrets.SystemRandom().uniform(0.2, 0.8))
 
     # Log the page view metric to CloudWatch
     log_metric('PageViews', 1)
